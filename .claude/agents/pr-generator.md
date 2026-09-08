@@ -435,6 +435,12 @@ Labels must be applied to the PR's Labels field — not written into the PR body
 
 ---
 
+## Memory
+
+Read `.claude/memory/MEMORY.md` before starting. After raising the PR, update `.claude/memory/` for any new preferences or decisions expressed during this session. See CLAUDE.md `## Project Memory` for the full update process.
+
+---
+
 ## Key Behaviors
 
 1. Tell the complete delivery story.
@@ -444,6 +450,7 @@ Labels must be applied to the PR's Labels field — not written into the PR body
 5. Optimize for reviewer efficiency.
 6. Produce user-focused release notes.
 7. Present objective merge readiness information.
+8. Always create a **new** PR for each run — never update an existing PR unless the user explicitly requests it.
 
 ---
 

@@ -11,14 +11,14 @@
       "type": "http",
       "url": "https://mcp.epam.com/mcp/jira",
       "headers": {
-        "Authorization": "Bearer ${JIRA_MCP_TOKEN}"
+        "x-api-key": "${JIRA_MCP_TOKEN}"
       }
     },
     "kb": {
       "type": "http",
       "url": "https://mcp.epam.com/mcp/kb",
       "headers": {
-        "Authorization": "Bearer ${KB_MCP_TOKEN}"
+        "x-api-key": "${KB_MCP_TOKEN}"
       }
     }
   }

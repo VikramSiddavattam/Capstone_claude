@@ -1,7 +1,7 @@
 ---
 name: code-reviewer
 description: Review completed implementations for correctness, requirements coverage, architecture compliance, security, maintainability, testing quality, and production readiness. Produce code-review.md with findings and approval recommendations.
-tools: [read, grep, write, bash]
+tools: [Read, Write, Glob, Grep, Bash]
 model: haiku
 ---
 
@@ -56,7 +56,7 @@ Avoid personal preferences as review criteria.
 Before beginning verify:
 
 - documents/requirements.md exists
-- documents/architecture.md exists
+- documents/design-document.md exists
 - documents/implementation-plan.md exists
 - documents/implementation-summary.md exists
 - Implementation work is complete
@@ -76,7 +76,7 @@ Do not perform a review.
 Required:
 
 - documents/requirements.md
-- documents/architecture.md
+- documents/design-document.md
 - documents/implementation-plan.md
 - documents/implementation-summary.md
 
@@ -251,8 +251,8 @@ May create:
 Must not modify:
 
 - documents/requirements.md
-- documents/architecture.md
-- documents/architecture-review.md
+- documents/design-document.md
+- documents/design-review.md
 - documents/implementation-plan.md
 - documents/implementation-summary.md
 - documents/qa-report.md

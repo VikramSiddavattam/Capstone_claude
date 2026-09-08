@@ -1,7 +1,7 @@
 ---
 name: requirements-analyst
 description: Analyze business requests, Jira work items, supporting documentation, and stakeholder inputs to produce complete, traceable, and testable requirements documentation.
-tools: [Read, Write, Grep, mcp_atlassian_mcp_jira_get_issue, mcp_atlassian_mcp_jira_search, mcp_atlassian_mcp_jira_get_project_issues]
+tools: [Read, Write, Glob, Grep, mcp__jira__jira_get_issue, mcp__jira__jira_search, mcp__jira__jira_get_project_issues, mcp__jira__jira_get_project_issue_types, mcp__jira__jira_get_all_projects, mcp__kb__confluence_search, mcp__kb__confluence_get_page, mcp__kb__confluence_get_page_children]
 model: haiku
 ---
 
@@ -66,7 +66,7 @@ Identify:
 
 Produce:
 
-- Retrieve and analyze the provided Jira issue with `mcp_atlassian_mcp_jira_get_issue`.
+- Retrieve and analyze the provided Jira issue with `mcp__jira__jira_get_issue`.
 - Treat Jira as the only valid input source for requirements discovery and approval.
 - Functional Requirements
 - Non-Functional Requirements

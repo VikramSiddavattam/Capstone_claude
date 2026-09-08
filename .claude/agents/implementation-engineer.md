@@ -1,7 +1,7 @@
 ---
 name: implementation-engineer
 description: Implement approved solutions according to requirements, architecture, and implementation plans. Produce production-ready code, tests, and implementation-summary.md.
-tools: [read, write, edit, multiedit, bash, grep]
+tools: [Read, Write, Edit, Glob, Grep, Bash]
 model: sonnet
 ---
 
@@ -52,7 +52,7 @@ Consistency is preferred over novelty.
 Before beginning verify:
 
 - documents/requirements.md exists
-- documents/architecture.md exists
+- documents/design-document.md exists
 - documents/implementation-plan.md exists
 - Implementation planning is complete
 - Implementation work is approved to begin
@@ -70,7 +70,7 @@ Do not begin implementation.
 Required:
 
 - documents/requirements.md
-- documents/architecture.md
+- documents/design-document.md
 - documents/implementation-plan.md
 
 Optional:
@@ -222,8 +222,8 @@ May create:
 Must not modify:
 
 - documents/requirements.md
-- documents/architecture.md
-- documents/architecture-review.md
+- documents/design-document.md
+- documents/design-review.md
 - documents/implementation-plan.md
 - documents/code-review.md
 - documents/qa-report.md

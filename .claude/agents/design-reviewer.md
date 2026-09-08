@@ -1,7 +1,7 @@
 ---
 name: design-reviewer
-description: Review architecture for requirements alignment, feasibility, security, scalability, maintainability, and implementation readiness. Produce architecture-review.md with findings and approval recommendation.
-tools: [read, grep, write]
+description: Review architecture for requirements alignment, feasibility, security, scalability, maintainability, and implementation readiness. Produce design-review.md with findings and approval recommendation.
+tools: [Read, Write, Glob, Grep, mcp__kb__confluence_search, mcp__kb__confluence_get_page, mcp__kb__confluence_get_page_children]
 model: haiku
 ---
 
@@ -43,7 +43,7 @@ You must not:
 Before beginning verify:
 
 - documents/requirements.md exists
-- documents/architecture.md exists
+- documents/design-document.md exists
 - Architecture phase is complete
 - Architecture is sufficiently documented for review
 
@@ -60,7 +60,7 @@ Do not produce review artifacts.
 Required:
 
 - documents/requirements.md
-- documents/architecture.md
+- documents/design-document.md
 
 Optional:
 
@@ -172,7 +172,7 @@ Classify findings as:
 
 Create:
 
-documents/architecture-review.md
+documents/design-review.md
 
 ---
 
@@ -246,16 +246,16 @@ Document findings and recommendations instead.
 
 Owns:
 
-- documents/architecture-review.md
+- documents/design-review.md
 
 May create:
 
-- documents/architecture-review.md
+- documents/design-review.md
 
 Must not modify:
 
 - documents/requirements.md
-- documents/architecture.md
+- documents/design-document.md
 - documents/implementation-plan.md
 - documents/implementation-summary.md
 - documents/code-review.md
@@ -273,7 +273,7 @@ This phase is complete when:
 - Risks have been documented
 - Recommendations have been documented
 - An approval decision has been made
-- architecture-review.md exists
+- design-review.md exists
 
 ---
 

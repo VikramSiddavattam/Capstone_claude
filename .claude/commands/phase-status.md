@@ -23,8 +23,8 @@ Determine the completion state of each SDLC phase.
 # Phase Artifacts
 
 - Requirements Analyst → documents/requirements.md
-- Solution Architect → documents/architecture.md
-- Design Reviewer → documents/architecture-review.md
+- Solution Architect → documents/design-document.md
+- Design Reviewer → documents/design-review.md
 - Implementation Planner → documents/implementation-plan.md
 - Implementation Engineer → documents/implementation-summary.md
 - Code Reviewer → documents/code-review.md
@@ -72,7 +72,7 @@ If one of the review artifacts contains:
 
 Applicable review artifacts:
 
-- architecture-review.md
+- design-review.md
 - code-review.md
 - qa-report.md
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{% block title %}Locator Lens{% endblock %}</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+         margin: 0; padding: 0; background: #f5f6f8; color: #1a1a1a; }
+  header { background: #1f2937; color: #fff; padding: 16px 24px; }
+  header h1 { margin: 0; font-size: 20px; }
+  main { max-width: 1200px; margin: 24px auto; padding: 0 24px 48px; }
+  .card { background: #fff; border: 1px solid #e2e5e9; border-radius: 8px;
+          padding: 20px 24px; margin-bottom: 20px; }
+  label { display: block; font-weight: 600; margin: 12px 0 4px; }
+  input[type=url], textarea { width: 100%; box-sizing: border-box;
+      padding: 8px; border: 1px solid #ccd0d5; border-radius: 4px;
+      font-family: inherit; font-size: 14px; }
+  textarea { min-height: 180px; font-family: Consolas, monospace; }
+  button, .btn { background: #2563eb; color: #fff; border: none;
+      padding: 10px 20px; border-radius: 4px; font-size: 14px;
+      cursor: pointer; }
+  .not-available { color: #9ca3af; font-style: italic; }
+  .fragile { color: #b45309; font-weight: 600; }
+  .status-failed, .status-skipped { color: #b91c1c; font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { border: 1px solid #e2e5e9; padding: 6px 8px; text-align: left;
+      vertical-align: top; }
+  th { background: #f0f2f5; position: sticky; top: 0; }
+  code { background: #f0f2f5; padding: 1px 4px; border-radius: 3px; }
+  .meta-grid { display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 8px 24px; }
+  .error-box { background: #fef2f2; border: 1px solid #fecaca;
+      color: #991b1b; padding: 16px; border-radius: 6px; }
+  .degradation-notice { background: #fffbeb; border: 1px solid #fde68a;
+      color: #92400e; padding: 10px 14px; border-radius: 6px;
+      margin-bottom: 16px; font-size: 13px; }
+  @media print { header, .no-print { display: none; } }
+</style>
+</head>
+<body>
+<header><h1>Locator Lens</h1></header>
+<main>
+{% block content %}{% endblock %}
+</main>
+</body>
+</html>

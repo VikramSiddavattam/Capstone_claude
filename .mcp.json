@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_MCP_PAT}"
+      }
+    },
+    "jira": {
+      "type": "http",
+      "url": "https://mcp.epam.com/mcp/jira",
+      "headers": {
+        "Authorization": "Bearer ${JIRA_MCP_TOKEN}"
+      }
+    },
+    "kb": {
+      "type": "http",
+      "url": "https://mcp.epam.com/mcp/kb",
+      "headers": {
+        "Authorization": "Bearer ${KB_MCP_TOKEN}"
+      }
+    }
+  }
+}

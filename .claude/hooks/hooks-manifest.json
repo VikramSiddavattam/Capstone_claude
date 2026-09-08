@@ -1,0 +1,331 @@
+{
+  "version": "2.0.0",
+  "hooks": [
+    {
+      "id": "workflow-start",
+      "event": "workflow:start",
+      "description": "Initialize SDLC workflow structure",
+      "actions": [
+        {
+          "type": "log",
+          "message": "SDLC workflow started"
+        },
+        {
+          "type": "createDirectory",
+          "path": "documents"
+        },
+        {
+          "type": "createDirectory",
+          "path": "documents/.approval-gates"
+        },
+        {
+          "type": "notify",
+          "message": "Workflow initialized. Requirements Analyst may begin."
+        }
+      ]
+    },
+
+    {
+      "id": "requirements-approved",
+      "event": "gate:approved",
+      "phase": "requirements",
+      "description": "Requirements phase approved",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/01-requirements-approved.txt"
+        },
+        {
+          "type": "log",
+          "message": "Requirements approved"
+        },
+        {
+          "type": "notify",
+          "message": "Requirements approved. Solution Architect may begin."
+        }
+      ]
+    },
+
+    {
+      "id": "architecture-approved",
+      "event": "gate:approved",
+      "phase": "architecture",
+      "description": "Architecture phase approved",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/02-architecture-approved.txt"
+        },
+        {
+          "type": "log",
+          "message": "Architecture approved"
+        },
+        {
+          "type": "notify",
+          "message": "Architecture approved. Design Reviewer may begin."
+        }
+      ]
+    },
+
+    {
+      "id": "design-review-approved",
+      "event": "gate:approved",
+      "phase": "design-review",
+      "description": "Architecture review approved",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/03-design-review-approved.txt"
+        },
+        {
+          "type": "log",
+          "message": "Architecture review approved"
+        },
+        {
+          "type": "notify",
+          "message": "Architecture review approved. Implementation Planner may begin."
+        }
+      ]
+    },
+
+    {
+      "id": "implementation-plan-approved",
+      "event": "gate:approved",
+      "phase": "implementation-plan",
+      "description": "Implementation plan approved",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/04-implementation-plan-approved.txt"
+        },
+        {
+          "type": "log",
+          "message": "Implementation plan approved"
+        },
+        {
+          "type": "notify",
+          "message": "Implementation plan approved. Implementation Engineer may begin."
+        }
+      ]
+    },
+
+    {
+      "id": "implementation-approved",
+      "event": "gate:approved",
+      "phase": "implementation",
+      "description": "Implementation approved",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/05-implementation-approved.txt"
+        },
+        {
+          "type": "log",
+          "message": "Implementation approved"
+        },
+        {
+          "type": "notify",
+          "message": "Implementation approved. Code Reviewer may begin."
+        }
+      ]
+    },
+
+    {
+      "id": "code-review-approved",
+      "event": "gate:approved",
+      "phase": "code-review",
+      "description": "Code review approved",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/06-code-review-approved.txt"
+        },
+        {
+          "type": "log",
+          "message": "Code review approved"
+        },
+        {
+          "type": "notify",
+          "message": "Code review approved. Quality Release Engineer may begin."
+        }
+      ]
+    },
+
+    {
+      "id": "qa-approved",
+      "event": "gate:approved",
+      "phase": "qa",
+      "description": "QA validation approved",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/07-qa-approved.txt"
+        },
+        {
+          "type": "log",
+          "message": "QA approved"
+        },
+        {
+          "type": "notify",
+          "message": "QA approved. PR Generator may begin."
+        }
+      ]
+    },
+
+    {
+      "id": "requirements-rejected",
+      "event": "gate:rejected",
+      "phase": "requirements",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/requirements-rejected.txt"
+        },
+        {
+          "type": "log",
+          "message": "Requirements rejected"
+        },
+        {
+          "type": "notify",
+          "message": "Requirements rejected. Revision required."
+        }
+      ]
+    },
+
+    {
+      "id": "architecture-rejected",
+      "event": "gate:rejected",
+      "phase": "architecture",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/architecture-rejected.txt"
+        },
+        {
+          "type": "log",
+          "message": "Architecture rejected"
+        },
+        {
+          "type": "notify",
+          "message": "Architecture rejected. Return to Solution Architect."
+        }
+      ]
+    },
+
+    {
+      "id": "design-review-rejected",
+      "event": "gate:rejected",
+      "phase": "design-review",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/design-review-rejected.txt"
+        },
+        {
+          "type": "log",
+          "message": "Architecture review rejected"
+        },
+        {
+          "type": "notify",
+          "message": "Architecture review rejected. Return to Solution Architect."
+        }
+      ]
+    },
+
+    {
+      "id": "implementation-plan-rejected",
+      "event": "gate:rejected",
+      "phase": "implementation-plan",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/implementation-plan-rejected.txt"
+        },
+        {
+          "type": "log",
+          "message": "Implementation plan rejected"
+        },
+        {
+          "type": "notify",
+          "message": "Implementation plan rejected. Return to Implementation Planner."
+        }
+      ]
+    },
+
+    {
+      "id": "implementation-rejected",
+      "event": "gate:rejected",
+      "phase": "implementation",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/implementation-rejected.txt"
+        },
+        {
+          "type": "log",
+          "message": "Implementation rejected"
+        },
+        {
+          "type": "notify",
+          "message": "Implementation rejected. Return to Implementation Engineer."
+        }
+      ]
+    },
+
+    {
+      "id": "code-review-rejected",
+      "event": "gate:rejected",
+      "phase": "code-review",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/code-review-rejected.txt"
+        },
+        {
+          "type": "log",
+          "message": "Code review rejected"
+        },
+        {
+          "type": "notify",
+          "message": "Code review rejected. Return to Implementation Engineer."
+        }
+      ]
+    },
+
+    {
+      "id": "qa-rejected",
+      "event": "gate:rejected",
+      "phase": "qa",
+      "actions": [
+        {
+          "type": "checkpoint",
+          "target": "documents/.approval-gates/qa-rejected.txt"
+        },
+        {
+          "type": "log",
+          "message": "QA rejected"
+        },
+        {
+          "type": "notify",
+          "message": "QA rejected. Return to Implementation Engineer for remediation."
+        }
+      ]
+    },
+
+    {
+      "id": "workflow-complete",
+      "event": "workflow:complete",
+      "description": "Triggered after PR package generation",
+      "actions": [
+        {
+          "type": "log",
+          "message": "SDLC workflow completed"
+        },
+        {
+          "type": "notify",
+          "message": "Workflow complete. Pull request package ready for human review and merge approval."
+        }
+      ]
+    }
+  ]
+}

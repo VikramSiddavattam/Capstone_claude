@@ -22,6 +22,5 @@
     "**/__pycache__": true,
     ".pytest_cache": true
   },
-  "chat.promptFilesRecommendations": true,
   "makefile.configureOnOpen": false
 }

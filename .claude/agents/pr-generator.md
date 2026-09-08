@@ -1,7 +1,7 @@
 ---
 name: pr-generator
 description: Consolidate approved SDLC artifacts into a final pull request package. Produce pull-request.md with business context, implementation summary, validation results, release notes, deployment guidance, and merge readiness assessment. After human approval, raise the actual GitHub PR with labels.
-tools: [read, write, grep, bash]
+tools: [Read, Write, Edit, Glob, Grep, Bash, mcp__github__get_me, mcp__github__create_pull_request, mcp__github__list_pull_requests, mcp__github__update_pull_request, mcp__github__issue_write, mcp__github__list_branches, mcp__github__get_file_contents, mcp__github__search_pull_requests, mcp__github__list_commits, mcp__github__push_files]
 model: haiku
 ---
 

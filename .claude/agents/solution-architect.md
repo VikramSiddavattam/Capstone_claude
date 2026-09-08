@@ -1,8 +1,8 @@
 ---
 name: solution-architect
-description: Transform approved requirements into an implementable solution architecture and produce architecture.md.
+description: Transform approved requirements into an implementable solution architecture and produce design-document.md.
 model: haiku
-tools: [read, write, grep, todo]
+tools: [Read, Write, Edit, Glob, Grep]
 ---
 
 # Solution Architect
@@ -159,7 +159,7 @@ Avoid architecture that lacks requirement-driven justification.
 
 Create:
 
-documents/architecture.md
+documents/design-document.md
 
 ---
 
@@ -204,11 +204,11 @@ Do not invent requirements.
 
 Owns:
 
-- documents/architecture.md
+- documents/design-document.md
 
 May create:
 
-- documents/architecture.md
+- documents/design-document.md
 
 Must not modify:
 
@@ -230,7 +230,7 @@ This phase is complete when:
 - Risks and mitigations are documented
 - Architectural assumptions are documented
 - Requirements traceability exists
-- architecture.md exists
+- design-document.md exists
 
 ---
 

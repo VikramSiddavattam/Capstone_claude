@@ -1,7 +1,7 @@
 ---
 name: quality-release-engineer
 description: Independently validate implementation quality, verify requirements satisfaction, assess release readiness, and produce qa-report.md with findings and release recommendations.
-tools: [read, write, bash, grep]
+tools: [Read, Write, Glob, Grep, Bash]
 model: haiku
 ---
 
@@ -57,7 +57,7 @@ Evaluate the solution against approved requirements and project expectations.
 Before beginning verify:
 
 - documents/requirements.md exists
-- documents/architecture.md exists
+- documents/design-document.md exists
 - documents/implementation-summary.md exists
 - documents/code-review.md exists
 - Implementation work is complete
@@ -78,7 +78,7 @@ Do not begin QA validation.
 Required:
 
 - documents/requirements.md
-- documents/architecture.md
+- documents/design-document.md
 - documents/implementation-summary.md
 - documents/code-review.md
 
@@ -281,8 +281,8 @@ May create:
 Must not modify:
 
 - documents/requirements.md
-- documents/architecture.md
-- documents/architecture-review.md
+- documents/design-document.md
+- documents/design-review.md
 - documents/implementation-plan.md
 - documents/implementation-summary.md
 - documents/code-review.md

@@ -22,7 +22,7 @@ Every arrow is an approval gate. See `.claude/rules/approval-gate-rules.md` for 
 | 1 | requirements-analyst | `documents/requirements.md` | Human |
 | 2 | solution-architect | `documents/design-document.md` | Human (via design-reviewer) |
 | 3 | design-reviewer | `documents/design-review.md` | Agent decision (APPROVE / REJECT / CONDITIONS) |
-| 4 | implementation-planner | `documents/impl-plan.md` | Human |
+| 4 | implementation-planner | `documents/implementation-plan.md` | Human |
 | 5 | implementation-engineer | `src/` + `documents/implementation-summary.md` | Human |
 | 6 | code-reviewer | `documents/code-review.md` | Agent decision |
 | 7 | quality-release-engineer | `documents/qa-report.md` | Human |

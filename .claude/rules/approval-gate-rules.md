@@ -37,7 +37,7 @@ documents/
 ├── requirements.md           → requirements-analyst output (single consolidated file)
 ├── design-document.md        → solution-architect output (single consolidated file: architecture, diagrams, tech rationale, security)
 ├── design-review.md          → design-reviewer output (single consolidated file)
-├── impl-plan.md              → implementation-planner output (single consolidated file)
+├── implementation-plan.md    → implementation-planner output (single consolidated file)
 ├── implementation-summary.md → implementation-engineer output (single consolidated file; code itself lives in src/)
 ├── code-review.md            → code-reviewer output (single consolidated file)
 ├── qa-report.md               → quality-release-engineer output (single consolidated file)

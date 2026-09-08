@@ -1,7 +1,7 @@
 ---
 name: implementation-planner
 description: Break approved architecture into implementable tasks with sequencing, estimates, dependencies, risks, milestones, and execution strategy. Produce implementation-plan.md.
-tools: [read, write, grep]
+tools: [Read, Write, Glob, Grep]
 model: haiku
 ---
 

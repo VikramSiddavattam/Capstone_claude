@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fixture: Basic Elements</title>
+  <style>
+    #main-title { color: #112233; font-size: 28px; font-family: Georgia; }
+    .cta { color: rgb(255, 0, 0); }
+  </style>
+</head>
+<body>
+  <h1 id="main-title">Welcome to the Fixture Page</h1>
+  <h2>A Subheading</h2>
+  <h3>A Deeper Subheading</h3>
+  <a href="/home" id="home-link">Home</a>
+  <a href="/about">About</a>
+  <a href="/about">About</a>
+  <button data-testid="submit-btn">Submit</button>
+  <input type="button" value="Legacy Button">
+  <input type="text" name="username" aria-label="Username field">
+  <input type="checkbox" name="agree">
+  <select name="country"><option>US</option><option>CA</option></select>
+  <textarea name="comments"></textarea>
+  <div role="button" class="cta">Custom Clickable</div>
+  <span role="tab">Tab One</span>
+  <div style="display:none">
+    <a href="/secret">Hidden Link</a>
+  </div>
+  <div aria-hidden="true">
+    <button>Hidden Button</button>
+  </div>
+  <iframe src="about:blank">
+    <a href="/iframe-only">Should Never Appear</a>
+  </iframe>
+</body>
+</html>

@@ -1,0 +1,59 @@
+APPROVAL GATE: Phase 3 - Design Review
+========================================
+
+Story ID: EPMCDMETST-62704 (Locator Lens)
+Phase: 3 of 8 - Design Review
+Status: APPROVED WITH CONDITIONS
+Reviewed By: design-reviewer agent
+Confirmed By: Project Coordinator
+Date: 2026-08-31
+
+Decision: APPROVE WITH CONDITIONS
+
+Reference: documents/design-review.md (full review, feasibility/security/
+scalability/standards assessment, and decision rationale)
+
+--------------------------------------------------------------------------
+CONDITIONS TO BE PICKED UP BY implementation-planner (Phase 4)
+--------------------------------------------------------------------------
+
+1. Element-correlation mechanism (High Risk)
+   Define and document the concrete mechanism that correlates a
+   DiscoveredElement's BeautifulSoup parse-tree node with its corresponding
+   Playwright element handle/locator on rendered pages, so Components 4
+   (DOM Parsing & Element Discovery), 5 (XPath Generation), and 6 (Style
+   Metadata Extraction) all operate on the same underlying DOM node.
+   Example approaches: injected marker attribute (e.g.
+   data-locator-lens-id), or a single XPath-derived lookup key computed
+   once and reused by both representations.
+   -> Must be specified in the Phase 4 task breakdown before Components
+      4-6 are implemented in Phase 5.
+
+2. URL-mode size-cap enforcement mechanism (Medium Risk)
+   Define and document the concrete Playwright mechanism used to enforce
+   the ~5MB response size ceiling during URL-mode navigation/rendering
+   (e.g., page.route()/response interception with abort-on-threshold, or
+   Content-Length pre-check), replacing the current outcome-only
+   description ("streamed byte counting") with a named implementation
+   approach.
+   -> Must be specified in the Phase 4 task breakdown for Component 3
+      (Input Acquisition Module) before implementation in Phase 5.
+
+Both conditions are implementation-detail gaps, not structural defects in
+the architecture. They do not require re-submission to design-reviewer
+unless resolving them forces a structural change to the components or
+data flow described in documents/design-document.md.
+
+--------------------------------------------------------------------------
+Should-Do items (non-blocking, carried forward for awareness)
+--------------------------------------------------------------------------
+- Verify early whether Chromium's navigation redirect behavior can be
+  counted/capped at exactly 5 hops via Playwright's API, or whether an
+  application-level redirect counter is needed.
+- Document the raw-HTML CSS-cascade approximation limitation in the
+  developer guide and in the report UI's degradation notice.
+
+--------------------------------------------------------------------------
+Gate Result
+--------------------------------------------------------------------------
+NEXT PHASE BEGINS: implementation-planner (Phase 4)

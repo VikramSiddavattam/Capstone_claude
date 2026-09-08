@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Locator Lens - Analyze a Page{% endblock %}
+{% block content %}
+<div class="card">
+  <p>Analyze a webpage (via URL) or raw HTML markup: discover UI elements,
+  generate XPath locators, and extract style metadata as an HTML report.</p>
+
+  <form action="/analyze" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <label>
+      <input type="radio" name="mode" value="url" checked onclick="toggleMode()"> Analyze a URL
+    </label>
+    <label>
+      <input type="radio" name="mode" value="raw_html" onclick="toggleMode()"> Analyze raw HTML
+    </label>
+
+    <div id="url-fields">
+      <label for="url">Page URL</label>
+      <input type="url" id="url" name="url" placeholder="https://example.com">
+    </div>
+
+    <div id="html-fields" style="display:none">
+      <label for="html_text">Paste HTML</label>
+      <textarea id="html_text" name="html_text" placeholder="&lt;html&gt;...&lt;/html&gt;"></textarea>
+      <label for="html_file">...or upload an HTML file</label>
+      <input type="file" id="html_file" name="html_file" accept=".html,.htm">
+    </div>
+
+    <p style="margin-top:20px;"><button type="submit">Analyze</button></p>
+  </form>
+</div>
+
+<script>
+function toggleMode() {
+  const isUrl = document.querySelector('input[name=mode]:checked').value === 'url';
+  document.getElementById('url-fields').style.display = isUrl ? 'block' : 'none';
+  document.getElementById('html-fields').style.display = isUrl ? 'none' : 'block';
+}
+function validateForm() {
+  const isUrl = document.querySelector('input[name=mode]:checked').value === 'url';
+  if (isUrl) {
+    const url = document.getElementById('url').value.trim();
+    if (!url) { alert('Please enter a URL.'); return false; }
+    if (!/^https?:\/\//i.test(url)) { alert('URL must start with http:// or https://'); return false; }
+  } else {
+    const text = document.getElementById('html_text').value.trim();
+    const file = document.getElementById('html_file').files.length > 0;
+    if (!text && !file) { alert('Paste HTML or choose a file to upload.'); return false; }
+  }
+  return true;
+}
+</script>
+{% endblock %}

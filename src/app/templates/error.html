@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Locator Lens - Error{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Analysis could not be completed</h2>
+  <div class="error-box">{{ message }}</div>
+  <p class="no-print"><a class="btn" href="/" style="text-decoration:none; display:inline-block; margin-top:16px;">Back to form</a></p>
+</div>
+{% endblock %}

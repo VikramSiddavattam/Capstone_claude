@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Locator Lens - Analysis Report{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Analysis Report</h2>
+  {% if metadata.degraded %}
+  <div class="degradation-notice">
+    Degraded analysis: {{ metadata.degradation_reason or "Fell back to static HTML." }}
+  </div>
+  {% endif %}
+  <div class="meta-grid">
+    <div><strong>Application Name:</strong>
+      {% if metadata.app_name == "Not Available" %}<span class="not-available">{{ metadata.app_name }}</span>{% else %}{{ metadata.app_name }}{% endif %}</div>
+    <div><strong>Frontend Technology:</strong>
+      {% if metadata.frontend_technology == "Not Available" %}<span class="not-available">{{ metadata.frontend_technology }}</span>{% else %}{{ metadata.frontend_technology }}{% endif %}</div>
+    <div><strong>Analyzed:</strong> {{ metadata.analysis_timestamp }}</div>
+    <div><strong>Page Source:</strong> {{ metadata.page_source_label }}</div>
+    <div><strong>Total Elements:</strong> {{ metadata.total_elements }}</div>
+    <div><strong>By Type:</strong>
+      {% for type_name, count in metadata.counts_by_type.items() %}{{ type_name }}: {{ count }}{% if not loop.last %}, {% endif %}{% endfor %}
+    </div>
+  </div>
+  <p class="no-print"><button onclick="window.print()">Print / Save as PDF</button></p>
+</div>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Name / Text</th>
+        <th>Type</th>
+        <th>Tag</th>
+        <th>XPath</th>
+        <th>Font Family</th>
+        <th>Font Size</th>
+        <th>Font Color</th>
+        <th>Attributes</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+      <tr>
+        <td>{{ row.name }}</td>
+        <td>{{ row.element_type }}</td>
+        <td><code>{{ row.tag }}</code></td>
+        <td>
+          <code>{{ row.xpath }}</code>
+          {% if row.fragile %}<br><span class="fragile">** Fragile **</span>{% endif %}
+        </td>
+        <td>{% if row.font_family == "Not Available" %}<span class="not-available">{{ row.font_family }}</span>{% else %}{{ row.font_family }}{% endif %}</td>
+        <td>{% if row.font_size == "Not Available" %}<span class="not-available">{{ row.font_size }}</span>{% else %}{{ row.font_size }}{% endif %}</td>
+        <td>{% if row.font_color == "Not Available" %}<span class="not-available">{{ row.font_color }}</span>{% else %}{{ row.font_color }}{% endif %}</td>
+        <td>
+          {% for key, value in row.attributes.items() %}<code>{{ key }}="{{ value }}"</code><br>{% endfor %}
+        </td>
+        <td>
+          {% if row.status == "OK" %}OK{% else %}
+          <span class="status-{{ row.status|lower }}">{{ row.status }}</span>
+          {% if row.reason %}<br><small>{{ row.reason }}</small>{% endif %}
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

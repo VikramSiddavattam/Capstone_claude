@@ -57,8 +57,10 @@ An agent may not:
 │   ├── agents/            # One .md per phase above — each is that agent's full spec
 │   ├── hooks/workflow-gates/  # stage-completion.sh, approve-and-transition.sh (standalone scripts;
 │   │                          #   not currently wired into settings.json hooks)
-│   └── rules/
-│       └── approval-gate-rules.md
+│   ├── memory/            # Project-wide preferences and decisions (MEMORY.md index + per-entry .md files)
+│   ├── rules/
+│   │   └── approval-gate-rules.md
+│   └── skills/            # Reusable skill definitions loaded by agents
 ├── documents/              # One consolidated .md deliverable per phase (see table above)
 │   ├── .approval-gates/    # One checkpoint file per completed phase, e.g. 01-requirements-approved.txt
 │   └── archive/            # Superseded/historical artifacts
@@ -126,6 +128,28 @@ Purpose:
 - Read the relevant `.claude/agents/*.md` file before acting as that phase — it's the authoritative process for that stage, not this file.
 - Don't do more than one phase's work in a turn, and don't create a phase's approval-gate checkpoint file until the human (or, for design-reviewer/code-reviewer, the agent itself per the table above) has actually signed off.
 - Keep `documents/` flat and one-file-per-phase; keep this file itself lean — add project-specific facts here, not generic software-engineering advice available anywhere else.
+
+## Project Memory
+
+Project-wide preferences and decisions are stored in `.claude/memory/`. Every agent must read and update this as part of its work.
+
+**Read** `.claude/memory/MEMORY.md` at the start of each phase to pick up any recorded preferences that affect your work.
+
+**Write** when you learn something new during your phase — a user correction, a stated preference, a project decision, or a constraint that is not obvious from the code. Use the following types:
+
+| Type | When to write |
+|---|---|
+| `feedback` | How to approach work — output format, naming, process preferences |
+| `project` | Ongoing decisions, constraints, deadlines, scope choices |
+| `user` | User role, expertise, domain knowledge |
+| `reference` | Where to find external resources (Jira projects, dashboards, docs) |
+
+To add a memory:
+1. Create `.claude/memory/<slug>.md` with frontmatter: `name`, `description`, `metadata.type`
+2. Body: state the rule or fact, then a `**Why:**` line and a `**How to apply:**` line
+3. Add a one-line entry to `.claude/memory/MEMORY.md`
+
+Do not duplicate existing entries — check the index first. Do not save things already derivable from the code or git history.
 
 ---
 
